@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'codyflatla.ca';
+  constructionMessage = 'This site is currently under construction';
 }
