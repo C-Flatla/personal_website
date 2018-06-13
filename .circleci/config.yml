@@ -24,7 +24,7 @@ jobs:
           prefix: tests
       - run:
           name: angular-lint
-          command: yarn lint
+          command: yarn lint personal-website --tslint-config tslint.json
       - store_artifacts:
           path: tslint.xml
           prefix: lint
