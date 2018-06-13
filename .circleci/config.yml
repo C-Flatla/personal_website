@@ -18,7 +18,7 @@ jobs:
             - ./node_modules
       - run:
           name: angular-test
-          command: yarn test --watch=false
+          command: yarn test personal-website --watch=false
       - store_artifacts:
           path: test-results.xml
           prefix: tests
