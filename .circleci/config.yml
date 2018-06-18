@@ -38,6 +38,7 @@ jobs:
             ssh $DROPLET_USER@$DROPLET_HOST "cd ~; touch 'test_foobar'"
 
 workflows:
+  version: 2
   build-and-deploy:
     jobs:
       - build
