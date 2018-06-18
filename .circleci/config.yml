@@ -33,9 +33,9 @@ jobs:
       enabled: true
     steps:
       - run:
-          name: Deploy Over SSH
-          command: |
-            ssh $DROPLET_USER@$DROPLET_HOST "cd ~; touch 'test_foobar'"
+        name: Deploy Over SSH
+        command: |
+          ssh $DROPLET_USER@$DROPLET_HOST "cd ~; touch 'test_foobar'"
 
 workflows:
   version: 2
