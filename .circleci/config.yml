@@ -33,6 +33,9 @@ jobs:
       enabled: true
     steps:
       - run:
+          name: add-ssh-known-host
+          command: ssh-keyscan $DROPLET_HOST >> ~/.ssh/known_hosts
+      - run:
           name: deploy-over-ssh
           command: ssh $DROPLET_USER@$DROPLET_HOST "cd ~; touch 'test_foobar'"
 
