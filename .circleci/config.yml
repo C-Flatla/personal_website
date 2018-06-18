@@ -7,34 +7,34 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        key: dependency-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
-        name: install-dependencies
-        command: yarn install
+          name: install-dependencies
+          command: yarn install
       - save_cache:
-        key: dependency-cache-{{ checksum "yarn.lock" }}
-        paths:
-          - ~/.cache/yarn
-          - ./node_modules
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+            - ./node_modules
       - run:
-        name: angular-test
-        command: yarn test personal-website --watch=false
+          name: angular-test
+          command: yarn test personal-website --watch=false
       - store_artifacts:
-        path: test-results.xml
-        prefix: tests
+          path: test-results.xml
+          prefix: tests
       - run:
-        name: angular-lint
-        command: yarn lint personal-website --tslint-config tslint.json
+          name: angular-lint
+          command: yarn lint personal-website --tslint-config tslint.json
       - store_artifacts:
-        path: tslint.xml
-        prefix: lint
+          path: tslint.xml
+          prefix: lint
   deploy:
     machine:
       enabled: true
     steps:
       - run:
-        name: deploy-over-ssh
-        command: ssh $DROPLET_USER@$DROPLET_HOST "cd ~; touch 'test_foobar'"
+          name: deploy-over-ssh
+          command: ssh $DROPLET_USER@$DROPLET_HOST "cd ~; touch 'test_foobar'"
 
 workflows:
   version: 2
