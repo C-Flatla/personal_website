@@ -1,3 +1,7 @@
+# Add ssh key to ssh-agent
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa_circle
+
 # Instead of git pull: https://stackoverflow.com/a/15316602
 printf "STARTING git pull\n"
 git remote update -p; git merge --ff-only @{u}
