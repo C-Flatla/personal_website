@@ -1,6 +1,8 @@
 # Add ssh key to ssh-agent
+printf "STARTING ssh-agent\n"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa_circle
+printf "FINISHED ssh-add\n\n"
 
 # Instead of git pull: https://stackoverflow.com/a/15316602
 printf "STARTING git pull\n"
