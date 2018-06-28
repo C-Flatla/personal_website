@@ -5,8 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-prod": "ng build --prod --no-progress",
     "test": "ng test",
-    "lint": "ng lint",
+    "test-once": "ng test --watch=false --no-progress",
+    "lint": "ng lint personal-website --tslint-config tslint.json",
     "e2e": "ng e2e"
   },
   "private": true,
