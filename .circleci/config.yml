@@ -13,12 +13,14 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
+          keys:
+            - v1-dependency-cache-{{ checksum "package-lock.json" }}
+            - v1-dependency-cache-
       - run:
           name: install-dependencies
           command: npm install --no-progress
       - save_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
+          key: v1-dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
       - run:
@@ -39,7 +41,9 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
+          keys:
+            - v1-dependency-cache-{{ checksum "package-lock.json" }}
+            - v1-dependency-cache-
       - run:
           name: install-dependencies
           command: npm install --no-progress
@@ -51,16 +55,19 @@ jobs:
           name: angular-build --prod
           command: npm run-script build-prod
       - save_cache:
-          key: dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+          key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - ./dist
 
   deploy:
+    <<: *job_defaults
     machine:
       enabled: true
     steps:
       - restore_cache:
-          key: dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+          keys:
+            - v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+            - v1-dist-{{ .Environment.CIRCLE_BRANCH }}-
       - run:
           name: add-ssh-known-host
           command: ssh-keyscan $DROPLET_HOST >> ~/.ssh/known_hosts
@@ -69,7 +76,7 @@ jobs:
           # -p preserves modification times, access times, and modes from the original file
           # -r recursively copy entire directories
           # -q quietly
-          command: scp -prq ~/dist/. circleci@codyflatla.ca:/var/www/codyflatla.ca/html/
+          command: scp -prq ~/personal-website/dist/personal-website/. circleci@codyflatla.ca:/var/www/codyflatla.ca/html/
 
 workflows:
   version: 2
