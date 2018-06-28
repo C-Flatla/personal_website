@@ -66,12 +66,12 @@ workflows:
       - lint
       - test
       - build:
-        requires:
-          - lint
-          - test
-        filters:
-          branches:
-            only: master
+          requires:
+            - lint
+            - test
+          filters:
+            branches:
+              only: master
       # - deploy:
       #     requires:
       #       - lint
