@@ -50,17 +50,26 @@ jobs:
       - run:
           name: angular-build --prod
           command: npm run-script build-prod
+      - save_cache:
+          key: dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+              - dist
 
   deploy:
     machine:
       enabled: true
     steps:
+      - restore_cache:
+          key: dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: add-ssh-known-host
           command: ssh-keyscan $DROPLET_HOST >> ~/.ssh/known_hosts
       - run:
-          name: deploy-over-ssh
-          command: ssh $DROPLET_USER@$DROPLET_HOST "cd ~/personal_website; lib/deploy.sh"
+          name: deploy-using-scp
+          # -p preserves modification times, access times, and modes from the original file
+          # -r recursively copy entire directories
+          # -q quietly
+          command: scp -prq dist/. circleci@codyflatla.ca:/var/www/codyflatla.ca/html/
 
 workflows:
   version: 2
@@ -73,10 +82,10 @@ workflows:
           filters:
             branches:
               only: master
-      # - deploy:
-      #     requires:
-      #       - pre_build
-      #       - build
-      #     filters:
-      #       branches:
-      #         only: master
+      - deploy:
+          requires:
+            - pre_build
+            - build
+          filters:
+            branches:
+              only: master
