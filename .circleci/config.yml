@@ -60,7 +60,6 @@ jobs:
             - ./dist
 
   deploy:
-    <<: *job_defaults
     machine:
       enabled: true
     steps:
