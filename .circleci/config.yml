@@ -40,8 +40,8 @@ jobs:
     steps:
       - checkout
       - run:
-        name: angular-build --prod
-        command: yarn build --prod --no-progress
+          name: angular-build --prod
+          command: yarn build --prod --no-progress
 
   deploy:
     machine:
