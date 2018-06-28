@@ -8,7 +8,7 @@ anchor_1: &job_defaults
 
 version: 2
 jobs:
-  lint:
+  pre_build:
     <<: *job_defaults
     steps:
       - checkout
@@ -28,11 +28,6 @@ jobs:
       - store_artifacts:
           path: tslint.xml
           prefix: lint
-
-  test:
-    <<: *job_defaults
-    steps:
-      - checkout
       - run:
           name: angular-test
           command: yarn test personal-website --single-run --no-progress
@@ -63,19 +58,16 @@ workflows:
   version: 2
   default_workflow:
     jobs:
-      - lint
-      - test
+      - pre_build
       - build:
           requires:
-            - lint
-            - test
+            - pre_build
           filters:
             branches:
               only: master
       # - deploy:
       #     requires:
-      #       - lint
-      #       - test
+      #       - pre_build
       #       - build
       #     filters:
       #       branches:
