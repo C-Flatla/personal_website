@@ -1,12 +1,11 @@
-# Variables
-var_1: &docker_image circleci/node:10.4-browsers
+version: 2
 
+# Variables
 anchor_1: &job_defaults
   working_directory: ~/personal-website
   docker:
-    - image: *docker_image
+    - image: circleci/node:10.4-browsers
 
-version: 2
 jobs:
   pre_build:
     <<: *job_defaults
@@ -60,8 +59,7 @@ jobs:
             - ./dist
 
   deploy:
-    machine:
-      enabled: true
+    <<: *job_defaults
     steps:
       - restore_cache:
           keys:
