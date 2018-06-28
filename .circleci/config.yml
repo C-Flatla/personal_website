@@ -59,7 +59,8 @@ jobs:
             - ./dist
 
   deploy:
-    <<: *job_defaults
+    working_directory: ~/personal-website
+    machine: true
     steps:
       - restore_cache:
           keys:
