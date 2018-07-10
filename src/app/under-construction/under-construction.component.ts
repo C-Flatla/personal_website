@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./under-construction.component.css']
 })
 export class UnderConstructionComponent implements OnInit {
-  message = 'This site is currently under construction';
+  message = 'This page is currently under construction';
 
   constructor() { }
 

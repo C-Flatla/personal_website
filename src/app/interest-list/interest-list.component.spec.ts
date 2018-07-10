@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
 
 import { InterestListComponent } from './interest-list.component';
+
+@Component({selector: 'app-under-construction', template: ''})
+class UnderConstructionStubComponent { }
 
 describe('InterestListComponent', () => {
   let component: InterestListComponent;
@@ -8,7 +12,10 @@ describe('InterestListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InterestListComponent ]
+      declarations: [
+        InterestListComponent,
+        UnderConstructionStubComponent
+      ]
     })
     .compileComponents();
   }));
