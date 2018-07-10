@@ -1,8 +1,18 @@
 <nav class="navbar navbar-expand-md">
   <a class="navbar-brand" routerLink="/">Cody Flatla</a>
 
-  <div class="collapse navbar-collapse">
-    <ul class="navbar-nav">
+  <button
+    class="navbar-toggler"
+    type="button"
+    (click)="isCollapsed = !isCollapsed"
+    aria-controls="navbarCollapse"
+    [attr.aria-expanded]="!isCollapsed"
+    aria-label="Toggle navigation">
+    <fa-icon [icon]="['fas', 'bars']"></fa-icon>
+  </button>
+
+  <div class="navbar-collapse" [ngbCollapse]="isCollapsed">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a routerLink="/home" class="nav-link" routerLinkActive="active">Home</a>
       </li>
