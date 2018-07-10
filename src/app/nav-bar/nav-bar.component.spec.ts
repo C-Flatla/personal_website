@@ -8,7 +8,9 @@ describe('NavBarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavBarComponent ]
+      declarations: [
+        NavBarComponent
+      ]
     })
     .compileComponents();
   }));
@@ -21,5 +23,9 @@ describe('NavBarComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have two links', () => {
+    expect(fixture.debugElement.nativeElement.querySelectorAll(".nav-item").length).toBe(2);
   });
 });
