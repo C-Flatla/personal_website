@@ -5,11 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { ConstructionComponent } from './construction/construction.component';
+import { UnderConstructionComponent } from './under-construction/under-construction.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConstructionComponent
+    UnderConstructionComponent
   ],
   imports: [
     BrowserModule,
