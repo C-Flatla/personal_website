@@ -8,13 +8,15 @@ import { ConstructionComponent } from './construction/construction.component';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { InterestListComponent } from './interest-list/interest-list.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UnderConstructionComponent,
     NavBarComponent,
-    InterestListComponent
+    InterestListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
