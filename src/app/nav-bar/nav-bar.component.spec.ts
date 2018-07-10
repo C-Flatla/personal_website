@@ -36,16 +36,16 @@ describe('NavBarComponent', () => {
   });
 
   it('should have two links', () => {
-    expect(nativeElement.querySelectorAll(".nav-item").length).toBe(2);
+    expect(nativeElement.querySelectorAll('.nav-item').length).toBe(2);
   });
 
   it('should default to collapsed', () => {
-    expect(nativeElement.querySelectorAll(".navbar-collapse.collapse.show").length).toBe(0);
+    expect(nativeElement.querySelectorAll('.navbar-collapse.collapse.show').length).toBe(0);
   });
 
   it('should show the nav-bar when not collapsed', () => {
     component.isCollapsed = false;
     fixture.detectChanges();
-    expect(nativeElement.querySelectorAll(".navbar-collapse.collapse.show").length).toBe(1);
+    expect(nativeElement.querySelectorAll('.navbar-collapse.collapse.show').length).toBe(1);
   });
 });
