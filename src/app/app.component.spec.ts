@@ -1,15 +1,20 @@
 import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
 import { Component } from '@angular/core';
+
+import { AppComponent } from './app.component';
 
 @Component({selector: 'router-outlet', template: ''})
 class RouterOutletStubComponent { }
+
+@Component({selector: 'app-nav-bar', template: '<h1 class="nav-bar-test">NAV BAR</h1>'})
+class NavBarStubComponent { }
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
+        NavBarStubComponent,
         RouterOutletStubComponent
       ],
     }).compileComponents();
@@ -31,6 +36,13 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to codyflatla.ca!');
+    expect(compiled.querySelector('.jumbotron').textContent).toContain('Welcome to codyflatla.ca!');
+  }));
+
+  it('should render the nav-bar component', async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.nav-bar-test').textContent).toContain('NAV BAR');
   }));
 });
