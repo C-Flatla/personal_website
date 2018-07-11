@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
 
 import { ProjectListComponent } from './project-list.component';
+
+@Component({selector: 'app-under-construction', template: ''})
+class UnderConstructionStubComponent { }
 
 describe('ProjectListComponent', () => {
   let component: ProjectListComponent;
@@ -8,7 +12,10 @@ describe('ProjectListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectListComponent ]
+      declarations: [
+        ProjectListComponent,
+        UnderConstructionStubComponent
+      ]
     })
     .compileComponents();
   }));
