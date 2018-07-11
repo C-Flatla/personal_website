@@ -13,6 +13,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { InterestListComponent } from './interest-list/interest-list.component';
 import { HomeComponent } from './home/home.component';
 import { ProjectListComponent } from './project-list/project-list.component';
+import { ChangelogComponent } from './changelog/changelog.component';
 
 library.add(faBars);
 
@@ -23,7 +24,8 @@ library.add(faBars);
     NavBarComponent,
     InterestListComponent,
     HomeComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    ChangelogComponent
   ],
   imports: [
     BrowserModule,
