@@ -1,18 +1,23 @@
-# PersonalWebsite
+[![CircleCI](https://circleci.com/gh/C-Flatla/personal_website/tree/master.svg?style=svg&circle-token=2df60417e7c64708414f93ceed2cd3542a11a60c)](https://circleci.com/gh/C-Flatla/personal_website/tree/master)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
+# Personal Website
+This project is my own personal website. Here I will tinker around, learn some things, and try to explain a bit about myself.
 
-## Development server
+## Technologies
+- [Angular 6](https://angular.io/)
+- [Angular Bootstrap](https://ng-bootstrap.github.io/#/home)
+- [Bootstrap](https://getbootstrap.com)
+- [Karma](https://karma-runner.github.io) (test runner)
+- [Jasmine](https://jasmine.github.io/) (testing framework)
+- [Protractor](http://www.protractortest.org/) (e2e testing framework)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Installation
+1. `git clone git@github.com:C-Flatla/personal_website.git`
+2. `cd personal_website`
+3. `npm install`
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Running locally
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files
 
 ## Running unit tests
 
@@ -22,6 +27,5 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+---
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
