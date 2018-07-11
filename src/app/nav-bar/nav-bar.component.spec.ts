@@ -35,8 +35,8 @@ describe('NavBarComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have two links', () => {
-    expect(nativeElement.querySelectorAll('.nav-item').length).toBe(2);
+  it('should have three links', () => {
+    expect(nativeElement.querySelectorAll('.nav-item').length).toBe(3);
   });
 
   it('should default to collapsed', () => {
