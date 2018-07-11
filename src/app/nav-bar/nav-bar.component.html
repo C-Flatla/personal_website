@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-md">
-  <a class="navbar-brand" routerLink="/">Cody Flatla</a>
+<nav class="navbar navbar-expand-sm">
+  <a class="navbar-brand mr-aut" routerLink="/">Cody Flatla</a>
 
   <button
     class="navbar-toggler"
@@ -12,12 +12,18 @@
   </button>
 
   <div class="navbar-collapse" [ngbCollapse]="isCollapsed">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav ml-auto w-100 justify-content-end">
       <li class="nav-item">
         <a routerLink="/home" class="nav-link" routerLinkActive="active">Home</a>
       </li>
       <li class="nav-item">
         <a routerLink="/interest-list" class="nav-link" routerLinkActive="active">Interests</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/project-list" class="nav-link" routerLinkActive="active">Projects</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/changelog" class="nav-link" routerLinkActive="active">Changelog</a>
       </li>
     </ul>
   </div>
