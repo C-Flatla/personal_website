@@ -11,13 +11,13 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="111.59626mm"
-   height="158.75mm"
+   width="421.78113"
+   height="600"
    viewBox="0 0 111.59626 158.75"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="face-final.svg"
+   sodipodi:docname="face.svg"
    inkscape:export-filename="C:\Users\Cody\Downloads\drawing2.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
@@ -401,22 +401,25 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.64"
-     inkscape:cx="45.410631"
-     inkscape:cy="395.78402"
+     inkscape:cx="-538.18311"
+     inkscape:cy="369.22149"
      inkscape:document-units="px"
      inkscape:current-layer="g5798"
      showgrid="false"
-     showborder="false"
+     showborder="true"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
-     inkscape:window-x="1912"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:pagecheckerboard="false"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
-     fit-margin-bottom="0" />
+     fit-margin-bottom="0"
+     units="px"
+     inkscape:showpageshadow="false"
+     borderlayer="true" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -434,10 +437,10 @@
      inkscape:label="face"
      id="g5798"
      inkscape:groupmode="layer"
-     transform="translate(-389.70477,-132.9017)">
+     transform="translate(-476.93459,-125.8737)">
     <g
        id="face"
-       transform="matrix(0.99999999,0,0,1.0000014,91.030863,-5.846705)">
+       transform="matrix(0.99999999,0,0,1.0000014,178.26068,-12.8747)">
       <title
          id="title1008">CodyFlatlaFace</title>
       <path
