@@ -70,11 +70,17 @@ jobs:
           name: add-ssh-known-host
           command: ssh-keyscan $DROPLET_HOST >> ~/.ssh/known_hosts
       - run:
+          name: remove-old-files
+          command: ssh circleci@codyflatla.ca "rm -rf /var/www/codyflatla.ca/html/*"
+      - run:
           name: deploy-using-scp
-          # -p preserves modification times, access times, and modes from the original file
-          # -r recursively copy entire directories
-          # -q quietly
-          command: scp -prq ~/personal-website/dist/. circleci@codyflatla.ca:/var/www/codyflatla.ca/html/
+          command: |
+            mv ~/personal-website/dist/assets/favicon ~/
+            # -p preserves modification times, access times, and modes from the original file
+            # -r recursively copy entire directories
+            # -q quietly
+            scp -prq ~/personal-website/dist/. circleci@codyflatla.ca:/var/www/codyflatla.ca/html/
+            scp -prq ~/favicon/. circleci@codyflatla.ca:/var/www/codyflatla.ca/html/
 
 workflows:
   version: 2
