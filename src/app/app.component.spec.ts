@@ -9,6 +9,9 @@ class RouterOutletStubComponent { }
 @Component({selector: 'app-nav-bar', template: '<h1 class="nav-bar-test">NAV BAR</h1>'})
 class NavBarStubComponent { }
 
+@Component({selector: 'app-footer-bar', template: '<h1 class="footer-bar-test">FOOTER BAR</h1>'})
+class FooterBarStubComponent { }
+
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
@@ -18,7 +21,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         NavBarStubComponent,
-        RouterOutletStubComponent
+        RouterOutletStubComponent,
+        FooterBarStubComponent
       ],
     }).compileComponents();
   }));
