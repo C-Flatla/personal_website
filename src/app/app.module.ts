@@ -14,6 +14,7 @@ import { InterestListComponent } from './interest-list/interest-list.component';
 import { HomeComponent } from './home/home.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ChangelogComponent } from './changelog/changelog.component';
+import { FooterBarComponent } from './footer-bar/footer-bar.component';
 
 library.add(faBars);
 
@@ -25,7 +26,8 @@ library.add(faBars);
     InterestListComponent,
     HomeComponent,
     ProjectListComponent,
-    ChangelogComponent
+    ChangelogComponent,
+    FooterBarComponent
   ],
   imports: [
     BrowserModule,
