@@ -8,11 +8,16 @@
 
 .home-header__face-container {
   width: 33%;
-  padding-top: 2rem;
+  padding: 2rem 0;
 }
 
 .home-header__face {
   width: 100%;
   background-color: #c8d6e5;
   padding: 1rem;
+}
+
+.home-header__caption {
+  color: #c8d6e5;
+  background-color: #222f3e;
 }
