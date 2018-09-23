@@ -29,14 +29,4 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it(`should have as title 'codyflatla.ca'`, async(() => {
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('codyflatla.ca');
-  }));
-
-  it('should render title in a h1 tag', async(() => {
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.jumbotron').textContent).toContain('Welcome to codyflatla.ca!');
-  }));
 });
