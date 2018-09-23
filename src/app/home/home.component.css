@@ -5,3 +5,14 @@
   background-size: cover;
   min-height: 100vh;
 }
+
+.home-header__face-container {
+  width: 33%;
+  padding-top: 2rem;
+}
+
+.home-header__face {
+  width: 100%;
+  background-color: #c8d6e5;
+  padding: 1rem;
+}
