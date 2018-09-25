@@ -1,5 +1,5 @@
 .app-root__container {
   min-height: 100%;
-  padding-bottom: 3.5rem; /* Height of footer */
+  padding: 3.5rem 0; /* Height of header/footer */
   position: relative;
 }
