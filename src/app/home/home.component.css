@@ -1,0 +1,24 @@
+.home-header__background-img {
+  background-image: url("/assets/background-img.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: calc(100vh - 3.5rem); /* Nav bar height */
+}
+
+.home-header__face-container {
+  width: 33%;
+  padding: 2rem 0;
+}
+
+.home-header__face {
+  width: 100%;
+  background-color: #c8d6e5;
+  padding: 1rem;
+}
+
+.home-header__caption {
+  color: #c8d6e5;
+  background-color: #222f3e;
+  padding: 0.5rem 1rem;
+}

@@ -1,3 +1,20 @@
+:host {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1030; /* $zindex-navbar-fixed in Bootstrap */
+  background: #222f3e;
+}
+
+a {
+  color: #c8d6e5;
+}
+
+a:hover {
+  color:#8395a7;
+  text-decoration: underline;
+}
+
 .active {
-  font-weight: 700;
+  color: #8395a7;
 }
