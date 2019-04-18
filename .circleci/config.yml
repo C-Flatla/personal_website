@@ -79,8 +79,8 @@ jobs:
             # -p preserves modification times, access times, and modes from the original file
             # -r recursively copy entire directories
             # -q quietly
-            scp -prq ~/personal-website/dist/. circleci@codyflatla.ca:/var/www/codyflatla.ca/html/
-            scp -prq ~/favicon/. circleci@codyflatla.ca:/var/www/codyflatla.ca/html/
+            scp -prq ~/personal-website/dist/* circleci@codyflatla.ca:/var/www/codyflatla.ca/html/
+            scp -prq ~/favicon/* circleci@codyflatla.ca:/var/www/codyflatla.ca/html/
 
 workflows:
   version: 2
