@@ -3,9 +3,6 @@ import { Component } from '@angular/core';
 
 import { ChangelogComponent } from './changelog.component';
 
-@Component({selector: 'app-under-construction', template: ''})
-class UnderConstructionStubComponent { }
-
 describe('ChangelogComponent', () => {
   let component: ChangelogComponent;
   let fixture: ComponentFixture<ChangelogComponent>;
@@ -13,8 +10,7 @@ describe('ChangelogComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        ChangelogComponent,
-        UnderConstructionStubComponent
+        ChangelogComponent
       ]
     })
     .compileComponents();
