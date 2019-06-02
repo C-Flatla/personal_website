@@ -1,7 +1,7 @@
 version: 2
 
 # Variables
-anchor_1: &job_defaults
+job_defaults: &job_defaults
   working_directory: ~/personal-website
   docker:
     - image: circleci/node:12.3.1-browsers
@@ -90,9 +90,6 @@ workflows:
       - build:
           requires:
             - pre_build
-          filters:
-            branches:
-              only: master
       - deploy:
           requires:
             - pre_build
