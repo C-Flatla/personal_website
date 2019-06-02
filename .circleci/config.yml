@@ -49,18 +49,7 @@ jobs:
   build:
     <<: *job_defaults
     steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-dependency-cache-{{ checksum "package-lock.json" }}
-            - v1-dependency-cache-
-      - run:
-          name: install-dependencies
-          command: npm install --no-progress
-      - save_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-          paths:
-            - ./node_modules
+      - install_dependencies
       - run:
           name: angular-build --prod
           command: npm run-script build-prod
