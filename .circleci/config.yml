@@ -6,9 +6,9 @@ job_defaults: &job_defaults
   docker:
     - image: circleci/node:12.3.1-browsers
 
-jobs:
-  pre_build:
-    <<: *job_defaults
+commands:
+  install_dependencies:
+    description: "Install node modules (using cache)"
     steps:
       - checkout
       - restore_cache:
@@ -22,12 +22,23 @@ jobs:
           key: v1-dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
+
+jobs:
+  lint:
+    <<: *job_defaults
+    steps:
+      - install_dependencies
       - run:
           name: angular-lint
           command: npm run-script lint
       - store_artifacts:
           path: tslint.xml
           prefix: lint
+
+  test:
+    <<: *job_defaults
+    steps:
+      - install_dependencies
       - run:
           name: angular-test
           command: npm run-script test-once
@@ -86,13 +97,16 @@ workflows:
   version: 2
   default_workflow:
     jobs:
-      - pre_build
+      - lint
+      - test
       - build:
           requires:
-            - pre_build
+            - lint
+            - test
       - deploy:
           requires:
-            - pre_build
+            - lint
+            - test
             - build
           filters:
             branches:
