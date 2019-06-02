@@ -24,7 +24,7 @@ commands:
             - ./node_modules
 
 jobs:
-  lint_and_test:
+  lint:
     <<: *job_defaults
     steps:
       - install_dependencies
@@ -34,6 +34,11 @@ jobs:
       - store_artifacts:
           path: tslint.xml
           prefix: lint
+
+  test:
+    <<: *job_defaults
+    steps:
+      - install_dependencies
       - run:
           name: angular-test
           command: npm run-script test-once
@@ -92,13 +97,16 @@ workflows:
   version: 2
   default_workflow:
     jobs:
-      - lint_and_test
+      - lint
+      - test
       - build:
           requires:
-            - lint_and_test
+            - lint
+            - test
       - deploy:
           requires:
-            - lint_and_test
+            - lint
+            - test
             - build
           filters:
             branches:
