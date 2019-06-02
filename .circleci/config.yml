@@ -15,7 +15,6 @@ commands:
           keys:
             - dependency-cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "package-lock.json" }}
             - dependency-cache-{{ .Environment.CACHE_VERSION }}-
-            - dependency-cache-
       - run:
           name: install-dependencies
           command: npm install --no-progress
@@ -66,8 +65,6 @@ jobs:
       - restore_cache:
           keys:
             - dist-{{ .Environment.CACHE_VERSION }}-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
-            - dist-{{ .Environment.CACHE_VERSION }}-{{ .Environment.CIRCLE_BRANCH }}-
-            - dist-{{ .Environment.CACHE_VERSION }}-
       - run:
           name: add-ssh-known-host
           command: ssh-keyscan $DROPLET_HOST >> ~/.ssh/known_hosts
