@@ -13,13 +13,14 @@ commands:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependency-cache-{{ checksum "package-lock.json" }}
-            - v1-dependency-cache-
+            - dependency-cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "package-lock.json" }}
+            - dependency-cache-{{ .Environment.CACHE_VERSION }}-
+            - dependency-cache-
       - run:
           name: install-dependencies
           command: npm install --no-progress
       - save_cache:
-          key: v1-dependency-cache-{{ checksum "package-lock.json" }}
+          key: dependency-cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
 
@@ -54,7 +55,7 @@ jobs:
           name: angular-build --prod
           command: npm run-script build-prod
       - save_cache:
-          key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+          key: dist-{{ .Environment.CACHE_VERSION }}-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - ./dist
 
@@ -64,8 +65,9 @@ jobs:
     steps:
       - restore_cache:
           keys:
-            - v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
-            - v1-dist-{{ .Environment.CIRCLE_BRANCH }}-
+            - dist-{{ .Environment.CACHE_VERSION }}-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+            - dist-{{ .Environment.CACHE_VERSION }}-{{ .Environment.CIRCLE_BRANCH }}-
+            - dist-{{ .Environment.CACHE_VERSION }}-
       - run:
           name: add-ssh-known-host
           command: ssh-keyscan $DROPLET_HOST >> ~/.ssh/known_hosts
