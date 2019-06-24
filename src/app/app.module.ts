@@ -31,7 +31,7 @@ library.add(faBars);
   ],
   imports: [
     BrowserModule,
-    NgbModule.forRoot(),
+    NgbModule,
     AppRoutingModule,
     FontAwesomeModule
   ],
