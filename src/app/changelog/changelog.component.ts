@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import changelogData from 'src/assets/changelog-data.json';
 
 @Component({
   selector: 'app-changelog',
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./changelog.component.css']
 })
 export class ChangelogComponent implements OnInit {
+  changelogData = changelogData;
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() { }
 }
