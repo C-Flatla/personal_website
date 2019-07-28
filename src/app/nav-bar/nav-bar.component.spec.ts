@@ -12,7 +12,7 @@ describe('NavBarComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        NgbCollapseModule.forRoot()
+        NgbCollapseModule
       ],
       declarations: [
         NavBarComponent
