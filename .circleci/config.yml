@@ -74,15 +74,17 @@ jobs:
           command: ssh circleci@codyflatla.ca "rm -rf /var/www/codyflatla.ca/html/*"
       - run:
           name: generate-changelog
-          command: ./lib/generate-changelog-json.sh
+          command: |
+            ./lib/generate-changelog-json.sh
+            mv src/assets/changelog-data.json dist/assets/
       - run:
           name: deploy-using-scp
           command: |
-            mv ~/personal-website/dist/assets/favicon ~/
+            mv dist/assets/favicon ~/
             # -p preserves modification times, access times, and modes from the original file
             # -r recursively copy entire directories
             # -q quietly
-            scp -prq ~/personal-website/dist/* circleci@codyflatla.ca:/var/www/codyflatla.ca/html/
+            scp -prq dist/* circleci@codyflatla.ca:/var/www/codyflatla.ca/html/
             scp -prq ~/favicon/* circleci@codyflatla.ca:/var/www/codyflatla.ca/html/
 
 workflows:
