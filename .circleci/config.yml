@@ -72,6 +72,9 @@ jobs:
           name: remove-old-files
           command: ssh circleci@codyflatla.ca "rm -rf /var/www/codyflatla.ca/html/*"
       - run:
+          name: generate-changelog
+          command: ./lib/generate-changelog-json.sh
+      - run:
           name: deploy-using-scp
           command: |
             mv ~/personal-website/dist/assets/favicon ~/
@@ -98,4 +101,4 @@ workflows:
             - build
           filters:
             branches:
-              only: master
+              only: 19-07-28-changelog-improvements
