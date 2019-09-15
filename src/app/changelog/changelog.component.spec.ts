@@ -28,6 +28,6 @@ describe('ChangelogComponent', () => {
 
   it('should have some content', () => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Release Notes');
+    expect(compiled.querySelector('h1').textContent).toContain('Changelog');
   });
 });
