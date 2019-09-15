@@ -51,13 +51,13 @@ jobs:
     steps:
       - install_dependencies
       - run:
+          name: angular-build --prod
+          command: npm run-script build-prod
+      - run:
           name: generate-changelog
           command: |
             ./lib/generate-changelog-json.sh
             mv src/assets/changelog-data.json dist/assets/
-      - run:
-          name: angular-build --prod
-          command: npm run-script build-prod
       - save_cache:
           key: dist-{{ .Environment.CACHE_VERSION }}-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
           paths:
