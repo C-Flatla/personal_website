@@ -51,6 +51,11 @@ jobs:
     steps:
       - install_dependencies
       - run:
+          name: generate-changelog
+          command: |
+            ./lib/generate-changelog-json.sh
+            mv src/assets/changelog-data.json dist/assets/
+      - run:
           name: angular-build --prod
           command: npm run-script build-prod
       - save_cache:
@@ -72,11 +77,6 @@ jobs:
       - run:
           name: remove-old-files
           command: ssh circleci@codyflatla.ca "rm -rf /var/www/codyflatla.ca/html/*"
-      - run:
-          name: generate-changelog
-          command: |
-            ./lib/generate-changelog-json.sh
-            mv src/assets/changelog-data.json dist/assets/
       - run:
           name: deploy-using-scp
           command: |
