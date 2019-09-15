@@ -62,6 +62,7 @@ jobs:
     working_directory: ~/personal-website
     machine: true
     steps:
+      - checkout
       - restore_cache:
           keys:
             - dist-{{ .Environment.CACHE_VERSION }}-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
