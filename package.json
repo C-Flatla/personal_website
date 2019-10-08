@@ -10,7 +10,8 @@
     "test": "ng test",
     "test-once": "ng test --watch=false --no-progress",
     "lint": "ng lint personal-website --tslint-config tslint.json",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "generate-changelog": "lib/generate-changelog-json.sh"
   },
   "private": true,
   "dependencies": {
@@ -42,7 +43,6 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^10.12.18",
     "codelyzer": "^4.5.0",
-    "git-release-notes": "^4.0.1",
     "jasmine-core": "^3.3.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^4.1.0",

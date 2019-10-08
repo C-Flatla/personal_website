@@ -51,6 +51,10 @@ jobs:
     steps:
       - install_dependencies
       - run:
+          name: generate-changelog
+          command: |
+            npm run generate-changelog
+      - run:
           name: angular-build --prod
           command: npm run-script build-prod
       - save_cache:
@@ -62,6 +66,7 @@ jobs:
     working_directory: ~/personal-website
     machine: true
     steps:
+      - checkout
       - restore_cache:
           keys:
             - dist-{{ .Environment.CACHE_VERSION }}-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
@@ -74,11 +79,11 @@ jobs:
       - run:
           name: deploy-using-scp
           command: |
-            mv ~/personal-website/dist/assets/favicon ~/
+            mv dist/assets/favicon ~/
             # -p preserves modification times, access times, and modes from the original file
             # -r recursively copy entire directories
             # -q quietly
-            scp -prq ~/personal-website/dist/* circleci@codyflatla.ca:/var/www/codyflatla.ca/html/
+            scp -prq dist/* circleci@codyflatla.ca:/var/www/codyflatla.ca/html/
             scp -prq ~/favicon/* circleci@codyflatla.ca:/var/www/codyflatla.ca/html/
 
 workflows:
