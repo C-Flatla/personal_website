@@ -51,12 +51,12 @@ jobs:
     steps:
       - install_dependencies
       - run:
-          name: angular-build --prod
-          command: npm run-script build-prod
-      - run:
           name: generate-changelog
           command: |
             npm run generate-changelog
+      - run:
+          name: angular-build --prod
+          command: npm run-script build-prod
       - save_cache:
           key: dist-{{ .Environment.CACHE_VERSION }}-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
           paths:
@@ -103,4 +103,4 @@ workflows:
             - build
           filters:
             branches:
-              only: 19-07-28-changelog-improvements
+              only: master
