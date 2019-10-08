@@ -103,4 +103,4 @@ workflows:
             - build
           filters:
             branches:
-              only: master
+              only: 19-07-28-changelog-improvements
