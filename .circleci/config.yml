@@ -56,8 +56,7 @@ jobs:
       - run:
           name: generate-changelog
           command: |
-            ./lib/generate-changelog-json.sh
-            mv src/assets/changelog-data.json dist/assets/
+            npm run generate-changelog
       - save_cache:
           key: dist-{{ .Environment.CACHE_VERSION }}-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
           paths:
