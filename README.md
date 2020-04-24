@@ -1,7 +1,9 @@
-# Personal Website
+# Personal Website (DEPRECATED)
 [![CircleCI](https://circleci.com/gh/C-Flatla/personal_website/tree/master.svg?style=svg&circle-token=2df60417e7c64708414f93ceed2cd3542a11a60c)](https://circleci.com/gh/C-Flatla/personal_website/tree/master)
 
 This project is my own personal website. Here I will tinker around, learn some things, and try to explain a bit about myself.
+
+## NOTE: This repo has been deprecated for a newer version built using ReactJS
 
 ## Technologies
 - [Angular 6](https://angular.io/)
